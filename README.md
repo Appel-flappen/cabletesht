@@ -20,10 +20,13 @@ Note that the throughput will never be higher than that of the slowest interface
 
 ## What it do
 
-Based on the very useful answer by Thomas Tannhäuser [here](serverfault.com/questions/127636/force-local-ip-traffic-to-an-external-interface/861465), I just turned it into a script.
+Based on the very useful answer by Thomas Tannhäuser
+[here](serverfault.com/questions/127636/force-local-ip-traffic-to-an-external-interface/861465),
+I just turned it into a script.
 
 Sets up 2 network namespaces, brings up each interface with an IP, then runs
-Iperf3 as a server and a client across the interfaces.
+Iperf3 as a server and a client across the interfaces. At the end, or when
+interrupted, cleans up by deleting the namespaces.
 
 You may want to check that the IP address used will not conflict with your
 network. The default IP addresses are 192.168.136.1 and 192.168.136.2.
